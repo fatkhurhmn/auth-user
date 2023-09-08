@@ -14,9 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.muffar.authuser.R
-import com.muffar.authuser.presentation.auth.AuthState
 
 @Composable
 fun MainContent(
@@ -31,7 +31,9 @@ fun MainContent(
         ) {
             Text(
                 text = stringResource(R.string.welcome, email),
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleMedium.copy(
+                    fontWeight = FontWeight.Normal
+                ),
                 color = Color.DarkGray
             )
             Spacer(modifier = Modifier.height(16.dp))

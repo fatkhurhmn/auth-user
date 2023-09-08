@@ -1,4 +1,4 @@
-package com.muffar.authuser.presentation.auth.login
+package com.muffar.authuser.presentation.auth.register
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.muffar.authuser.R
-import com.muffar.authuser.presentation.auth.login.component.LoginForm
+import com.muffar.authuser.presentation.auth.register.component.RegisterForm
 import com.muffar.authuser.presentation.auth.rememberAuthState
 import com.muffar.authuser.ui.component.LoadingDialog
 import com.muffar.authuser.ui.component.TextButton
@@ -30,16 +30,17 @@ import com.muffar.authuser.ui.component.TextMessage
 import com.muffar.authuser.utils.Response
 
 @Composable
-fun LoginScreen(
+fun RegisterScreen(
     modifier: Modifier = Modifier,
-    onRegisterNavigate: () -> Unit,
-    viewModel: LoginViewModel = hiltViewModel(),
+    onLoginNavigate: () -> Unit,
+    viewModel: RegisterViewModel = hiltViewModel(),
 ) {
 
     val email by viewModel.email.collectAsState()
     val password by viewModel.password.collectAsState()
+    val confirmPassword by viewModel.confirmPassword.collectAsState()
     val areInputsValid by viewModel.areInputsValid.collectAsState()
-    val result = viewModel.loginResult.collectAsState(Response.Empty).value
+    val result = viewModel.registerResult.collectAsState(Response.Empty).value
     val state = rememberAuthState()
 
     Box(
@@ -73,7 +74,7 @@ fun LoginScreen(
                     }
                 } else {
                     TextMessage(
-                        message = stringResource(R.string.login_please),
+                        message = stringResource(R.string.register_please),
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
@@ -81,25 +82,26 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(4.dp))
 
-            LoginForm(
+            RegisterForm(
                 email = email,
                 password = password,
+                confirmPassword = confirmPassword,
                 areInputsValid = areInputsValid,
                 viewModel = viewModel,
                 state = state,
             )
             Spacer(modifier = Modifier.height(16.dp))
             TextButton(
-                text = stringResource(R.string.registration),
-                onClick = onRegisterNavigate,
+                text = stringResource(R.string.login),
+                onClick = onLoginNavigate,
             )
         }
 
         LaunchedEffect(result) {
             when (result) {
                 is Response.Success -> {
-                    state.showMessage(state.context.getString(R.string.login_message))
-                    state.intentToMainActivity()
+                    state.showMessage(state.context.getString(R.string.register_message))
+                    onLoginNavigate()
                 }
 
                 is Response.Failure ->

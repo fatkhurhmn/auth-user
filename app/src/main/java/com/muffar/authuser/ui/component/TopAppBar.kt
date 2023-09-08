@@ -5,6 +5,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 
@@ -19,7 +20,8 @@ fun TopAppBar(
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleLarge.copy(
-                    fontSize = 20.sp
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.SemiBold
                 ),
                 color = MaterialTheme.colorScheme.primary,
                 maxLines = 1,

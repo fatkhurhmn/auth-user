@@ -21,4 +21,7 @@
     <string name="welcome">Selamat datang, %s</string>
     <string name="logout">Logout</string>
     <string name="logout_message">Apakah anda yakin akan logout dari akun?</string>
+    <string name="confirm_password">Konformasi password</string>
+    <string name="register_please">Silakan registrasi</string>
+    <string name="register_message">Registrasi berhasil</string>
 </resources>

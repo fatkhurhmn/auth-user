@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.muffar.authuser.presentation.auth.login.LoginScreen
+import com.muffar.authuser.presentation.auth.register.RegisterScreen
 
 @Composable
 fun AuthNavGraph(navController: NavHostController) {
@@ -15,6 +16,11 @@ fun AuthNavGraph(navController: NavHostController) {
         composable(route = AuthScreen.Login.route) {
             LoginScreen(
                 onRegisterNavigate = { navController.navigate(AuthScreen.Register.route) }
+            )
+        }
+        composable(route = AuthScreen.Register.route) {
+            RegisterScreen(
+                onLoginNavigate = { navController.navigateUp() }
             )
         }
     }
