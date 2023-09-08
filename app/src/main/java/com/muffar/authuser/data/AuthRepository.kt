@@ -7,6 +7,7 @@ import com.muffar.authuser.domain.repository.IAuthRepository
 import com.muffar.authuser.domain.repository.LoginResponse
 import com.muffar.authuser.domain.repository.LogoutResponse
 import com.muffar.authuser.domain.repository.RegisterResponse
+import com.muffar.authuser.domain.repository.UserResponse
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
@@ -54,6 +55,17 @@ class AuthRepository @Inject constructor(
         trySend(Response.Loading)
         auth.signOut()
         trySend(Response.Success(true))
+        awaitClose()
+    }
+
+    override suspend fun getUser(): Flow<UserResponse> = callbackFlow{
+        trySend(Response.Loading)
+        try {
+            val user = auth.currentUser
+            trySend(Response.Success(user))
+        } catch (e: Exception) {
+            trySend(Response.Failure(e))
+        }
         awaitClose()
     }
 }

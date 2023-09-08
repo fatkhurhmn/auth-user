@@ -5,6 +5,7 @@ import com.muffar.authuser.domain.repository.IAuthRepository
 import com.muffar.authuser.domain.repository.LoginResponse
 import com.muffar.authuser.domain.repository.LogoutResponse
 import com.muffar.authuser.domain.repository.RegisterResponse
+import com.muffar.authuser.domain.repository.UserResponse
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -22,4 +23,7 @@ class AuthUseCaseImpl @Inject constructor(
 
     override suspend fun logoutUser(): Flow<LogoutResponse> =
         authRepository.logoutUser()
+
+    override suspend fun getUser(): Flow<UserResponse> =
+        authRepository.getUser()
 }

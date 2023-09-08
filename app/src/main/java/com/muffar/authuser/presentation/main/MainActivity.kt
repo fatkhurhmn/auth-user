@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val mainViewModel: MainViewModel = hiltViewModel()
-            val currentUser = mainViewModel.currentUser.collectAsState().value
+            val currentUser = mainViewModel.isLoggedIn.collectAsState().value
 
             AuthUserTheme {
                 // A surface container using the 'background' color from the theme

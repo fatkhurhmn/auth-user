@@ -18,4 +18,5 @@
     <string name="login_please">Silakan login</string>
     <string name="registration">Registrasi</string>
     <string name="login_message">Berhasil login</string>
+    <string name="welcome">Selamat datang, %s</string>
 </resources>
