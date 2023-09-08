@@ -30,6 +30,12 @@ class AuthState(
         context.startActivity(intent)
     }
 
+    fun intentToAuthActivity() {
+        val intent = Intent(context, AuthActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
+    }
+
     fun hideKeyboard() {
         keyboardController?.hide()
     }

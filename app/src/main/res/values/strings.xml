@@ -19,4 +19,6 @@
     <string name="registration">Registrasi</string>
     <string name="login_message">Berhasil login</string>
     <string name="welcome">Selamat datang, %s</string>
+    <string name="logout">Logout</string>
+    <string name="logout_message">Apakah anda yakin akan logout dari akun?</string>
 </resources>
