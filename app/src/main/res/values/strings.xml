@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">AuthUser</string>
+    <string name="show_password">Perlihatkan password</string>
+    <string name="hide_password">Sembunyikan password</string>
+    <string name="loading">Loading…</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="title_activity_auth">AuthActivity</string>
+    <string name="email_is_required">Email harus diisi</string>
+    <string name="email_is_invalid">Format email tidak valid</string>
+    <string name="password_is_required">Password harus diisi</string>
+    <string name="password_min_length">Pasword minimal 6 karakter</string>
+    <string name="confirm_password_is_required">Konfirmasi password harus diisi</string>
+    <string name="passwords_do_not_match">Konfirmasi password tidak cocok</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_please">Silakan login</string>
+    <string name="registration">Registrasi</string>
+    <string name="login_message">Berhasil login</string>
 </resources>
